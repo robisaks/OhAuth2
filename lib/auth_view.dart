@@ -55,7 +55,7 @@ class AuthViewState extends State<AuthView>
         setState(() {
           print("URL changed: $url");
           if (url.startsWith(widget.redirectUri)) {
-            this.code = (Uri.parse(url).queryParameters.values.toList()[1]);
+            this.code = (Uri.parse(url).queryParameters.values.toList()[0]);
             debugPrint(code);
             flutterWebviewPlugin.close();
             widget.accessTokenService.getAccessToken(
